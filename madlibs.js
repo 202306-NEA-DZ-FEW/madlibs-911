@@ -1,3 +1,16 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const welcomeButton = document.getElementById("welcome");
+  const contentContainer = document.getElementById("contentContainer");
+  const entranceDiv = document.getElementById('entrance');
+
+  welcomeButton.addEventListener("click", () => {
+    contentContainer.style.display = "block";
+    // welcomeButton.style.display = "none";
+    entranceDiv.remove();
+  });
+});
+
+
 /**
  * Complete the implementation of parseStory.
  * 
