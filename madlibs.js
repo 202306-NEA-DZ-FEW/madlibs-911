@@ -28,9 +28,10 @@
  */
 function parseStory(rawStory) {
   // Your code here.
+  console.log(rawStory)
   return {}; // This line is currently wrong :)
 }
-
+parseStory(rawStory)
 /**
  * All your other JavaScript code goes here, inside the function. Don't worry about
  * the `then` and `async` syntax for now.
@@ -39,4 +40,4 @@ function parseStory(rawStory) {
  */
 getRawStory().then(parseStory).then((processedStory) => {
   console.log(processedStory);
-});
+//});
