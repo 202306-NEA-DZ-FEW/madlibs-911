@@ -10,6 +10,24 @@
   justify-content: center;
   align-items: center;
 }
+.madLibsEdit {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  line-height: 0.5;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.madLibsEdit p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+.madLibsEdit p:nth-child(4n) {
+  margin-bottom: 40px; /* Add extra space after every 4th paragraph */
+}
 
 .button-container {
   display: flex;
