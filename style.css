@@ -1,49 +1,62 @@
-  #entrance {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('fire.gif') center center fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#entrance {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('fire.gif') center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('fire.gif') center center fixed;
+  background-size: cover;
+}
+
+.left {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.right {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translate(50%, -50%);
+}
+
+.fire-button {
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 400px;
+  height: 400px;
+  background: url('fire.png') center/cover;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 0.5));
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  #welcome {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    animation: bounce 1.5s infinite alternate;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    
+  50% {
+    transform: translateY(-10px);
   }
-  
-  .fire-button {
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-    position: absolute;
-    top: 37%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    animation: bounce 2s infinite; 
-    width: 400px;
-    height: 400px;
-    background: url('fire.png') center/cover; 
-    border: none;
-    padding: 0;
-    border-radius: 50%; 
-    filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 0.5)); 
-  }
-  
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
+}
