@@ -26,7 +26,7 @@
   margin-bottom: 10px;
 }
 .madLibsEdit p:nth-child(4n) {
-  margin-bottom: 40px; /* Add extra space after every 4th paragraph */
+  margin-bottom: 40px; 
 }
 
 .button-container {
