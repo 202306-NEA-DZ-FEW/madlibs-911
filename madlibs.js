@@ -28,7 +28,33 @@
  */
 function parseStory(rawStory) {
   // Your code here.
-  return {}; // This line is currently wrong :)
+  const array = [];
+  const splittedText = rawStory.split(" ");
+  
+  for (const word of splittedText) {
+    if ((/\[n\]/).test(word) === true) {
+      array.push({
+        word: word.replace("[n]", ""),
+        pos: "n"
+      })
+    } else if ((/\[a\]/).test(word) === true) {
+      array.push({
+        word: word.replace("[a]", ""),
+        pos: "a"
+      })
+    } else if ((/\[v\]/).test(word) === true) {
+      array.push({
+        word: word.replace("[v]", ""),
+        pos: "v"
+      })
+    } else {
+      array.push({
+        word: word
+      })
+    }
+  }
+
+  return array // This line is currently wrong :)
 }
 
 /**
