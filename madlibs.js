@@ -33,15 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Function to fetch and display story
-  async function loadStory() {
-    try {
-      const rawStory = await getRawStory();
-      const processedStory = parseStory(rawStory);
-      renderStory(processedStory);
-      contentContainer.style.display = "block";
-    } catch (error) {
-      console.error("Error fetching or processing the story:", error);
-    }
+  function loadStory() {
+    getRawStory()
+      .then(function(rawStory) {
+        const processedStory = parseStory(rawStory);
+        renderStory(processedStory);
+        contentContainer.style.display = "block";
+      })
+      .catch(function(error) {
+        console.error("Error fetching or processing the story:", error);
+      });
   }
 });
 
