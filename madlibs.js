@@ -57,7 +57,6 @@ function parseStory(rawStory) {
       })
     }
   }
-console.log(array);
   return array // This line is currently wrong :)
 }
 
@@ -135,7 +134,9 @@ getRawStory().then(parseStory).then((processedStory) => {
 
       // Wrap each word in a span
       const wordSpan = document.createElement('span');
-      if (wordObj.pos) {
+      if (wordObj.pos === 'break') {
+        madLibsPreview.appendChild(document.createElement("br"));
+      }else if (wordObj.pos) {
         wordSpan.textContent = inputValues[i] || '_________' + ' ';
       } else wordSpan.textContent = wordObj.word + ' ';
       // Append the word span to the preview view
