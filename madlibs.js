@@ -117,7 +117,7 @@ getRawStory().then(parseStory).then((processedStory) => {
       if (wordObj.pos === 'break') {
         madLibsPreview.appendChild(document.createElement("br"));
       } else if (wordObj.pos) {
-        wordSpan.textContent = inputValues[i] || '_________' + ' ';
+        wordSpan.textContent = inputValues[i] || '_____' + ' ';
       } else wordSpan.textContent = wordObj.word + ' ';
       madLibsPreview.appendChild(wordSpan);
       madLibsPreview.appendChild(document.createTextNode(" "));
