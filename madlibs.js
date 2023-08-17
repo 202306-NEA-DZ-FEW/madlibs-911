@@ -47,13 +47,16 @@ function parseStory(rawStory) {
         word: word.replace("[v]", ""),
         pos: "v"
       })
-    } else {
+    } else if ((/\[break\]/).test(word) === true) {
+      array.push({
+        word: word.replace("[break]", ""),
+        pos: "break"
+      })} else {
       array.push({
         word: word
       })
     }
   }
-
   return array // This line is currently wrong :)
 }
 
@@ -83,8 +86,10 @@ getRawStory().then(parseStory).then((processedStory) => {
 
     for (let i = 0; i < processedStory.length; i++) {
       const wordObj = processedStory[i];
-
-      if (wordObj.pos) {
+      if (wordObj.pos === 'break') {
+        madLibsEdit.appendChild(document.createElement("br")); // Add space
+        
+      }else if (wordObj.pos) {
         // Create an input element for edit view
         const input = document.createElement('input');
         input.type = 'text';
@@ -129,7 +134,9 @@ getRawStory().then(parseStory).then((processedStory) => {
 
       // Wrap each word in a span
       const wordSpan = document.createElement('span');
-      if (wordObj.pos) {
+      if (wordObj.pos === 'break') {
+        madLibsPreview.appendChild(document.createElement("br"));
+      }else if (wordObj.pos) {
         wordSpan.textContent = inputValues[i] || '_________' + ' ';
       } else wordSpan.textContent = wordObj.word + ' ';
       // Append the word span to the preview view
@@ -140,4 +147,26 @@ getRawStory().then(parseStory).then((processedStory) => {
 
   // Initial rendering
   renderStory();
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector('.madLibsEdit'); // Select the container div
+
+  container.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      const inputFields = container.querySelectorAll('input');
+      const currentInput = event.target;
+      const currentIndex = Array.from(inputFields).indexOf(currentInput);
+
+      if (currentIndex > -1) {
+        event.preventDefault(); // Prevent default form submission behavior
+        const nextIndex = currentIndex + 1;
+
+        if (nextIndex < inputFields.length) {
+          inputFields[nextIndex].focus(); // Move focus to the next input field
+        } else {
+          inputFields[0].focus(); // If at the last input, move focus to the first input
+        }
+      }
+    }
+  });
 });

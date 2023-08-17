@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Louis[n] went[v] to the store[n], and it was fun[a]. He taught[v] the class[n].
 In the Pacific[n] Northwest's somber embrace.
 Kurt Cobain's presence left a trace.
@@ -13,3 +14,39 @@ Cobain's inner battles[v], known to few.
 Grunge's anthem, a tormented guide.
 Youth's disenchanted hearts found their song.
 In his haunting verses, they did belong.
+=======
+In the Pacific Northwest's somber embrace. [break]
+ Kurt Cobain's presence left[v] a trace. [break]
+ Born in Aberdeen, a troubled soul. [break]
+ His creativity a shiny[a] roll. [break]
+
+ With Novoselic, Grohl, a trio[n] of might. [break]
+ Nirvana's music pierced the night. [break]
+ Yet amidst the fame, a darkness[n] grew. [break]
+ Cobain's inner battles, known to few. [break]
+
+'Nevermind' soared high and wide. [break]
+ Grunge's anthem, a tormented guide. [break]
+ Youth's disenchanted hearts found their song. [break]
+ In his haunting verses, they did belong. [break]
+
+ Yet amidst accolades, a battle within. [break]
+ Fame's weight bearing down, a struggle to win. [break]
+ The Pacific Northwest's calming[a] air. [break]
+ Couldn't soothe the turmoil lurking[v] there. [break]
+
+ In '94, tragedy struck[v] hard. [break]
+ Cobain's light dimmed, caught off-guard. [break]
+ His soul departed, a heavy toll. [break]
+ Leaving a void[n] in music's soul. [break]
+
+ Local bands strummed on, carrying his sound. [break]
+ Graffiti alleys whispered, grief unbound. [break]
+ The Pacific Northwest, a tribute so grand. [break]
+ Cradling Cobain's memory, a broken band. [break]
+
+ As sunsets paint[v] the sky aglow. [break]
+ Cobain's guitar strums[v] soft and low. [break]
+ His voice on the wind, a bittersweet[a] cry. [break]
+ A legend lives on, under the Northwest's sky. [break]
+>>>>>>> 68e4eed2dad3de9774911971acb69888f6d43b54
