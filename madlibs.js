@@ -1,31 +1,4 @@
-/**
- * Complete the implementation of parseStory.
- * 
- * parseStory retrieves the story as a single string from story.txt
- * (I have written this part for you).
- * 
- * In your code, you are required (please read this carefully):
- * - to return a list of objects
- * - each object should definitely have a field, `word`
- * - each object should maybe have a field, `pos` (part of speech)
- * 
- * So for example, the return value of this for the example story.txt
- * will be an object that looks like so (note the comma! periods should
- * be handled in the same way).
- * 
- * Input: "Louis[n] went[v] to the store[n], and it was fun[a]."
- * Output: [
- *  { word: "Louis", pos: "noun" },
- *  { word: "went", pos: "verb", },
- *  { word: "to", },
- *  { word: "the", },
- *  { word: "store", pos: "noun" }
- *  { word: "," }
- *  ....
- * 
- * There are multiple ways to do this, but you may want to use regular expressions.
- * Please go through this lesson: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/
- */
+
 // Function to parse the raw story text
 function parseStory(rawStory) {
   const array = [];
@@ -155,4 +128,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+});
+input.addEventListener('input', (event) => {
+  // Update the input value array
+  inputValues[i] = event.target.value;
+
+  // Set the width of the input element based on the input value's length
+  event.target.style.width = ((event.target.value.length + 1) * 10) + 'px'; // Adjust the multiplier as needed
+
+  // Render the preview view
+  renderPreview();
 });
