@@ -35,12 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to fetch and display story
   function loadStory() {
     getRawStory()
-      .then(function(rawStory) {
+      .then(function (rawStory) {
         const processedStory = parseStory(rawStory);
         renderStory(processedStory);
         contentContainer.style.display = "block";
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.error("Error fetching or processing the story:", error);
       });
   }
@@ -62,19 +62,56 @@ function renderStory(processedStory) {
 }
 
 // Function to parse the raw story text and return an array of word objects
-function parseStory(rawStory) {
+/*function parseStory(rawStory) {
   const wordArray = rawStory.split(/\s+/);
   const processedStory = [];
   wordArray.forEach((word) => {
     const wordObj = {};
     const match = word.match(/\[(.*?)\]/);
     if (match) {
+      let x = document.createElement('input');
+      x.type = 'text';
+      x.innerHTML = 'laid';
       wordObj.word = word.replace(match[0], "");
+      wordObj.input = x;
       wordObj.pos = match[1];
     } else {
       wordObj.word = word;
     }
+    console.log(wordObj)
     processedStory.push(wordObj);
   });
+
   return processedStory;
+}*/
+function parseStory(rawStory) {
+  // Your code here.
+  const processedStory = [];
+  const splittedText = rawStory.split(" ");
+  const nounPattern = /^[a-z]*$/;
+  for (const word of splittedText) {
+    if (nounPattern.test(word) === true) {
+      processedStory.push({
+        word: word.replace("[n]", ""),
+        pos: "n"
+      })
+    } else if ((/[a]/).test(word) === true) {
+      processedStory.push({
+        word: word.replace("[a]", ""),
+        pos: "a"
+      })
+    } else if ((/[v]/).test(word) === true) {
+      processedStory.push({
+        word: word.replace("[v]", ""),
+        pos: "v"
+      })
+    } else {
+      processedStory.push({
+        word: word
+      })
+      console.log(array)
+    }
+  }
+
+  return processedStory // This line is currently wrong 🙂
 }
