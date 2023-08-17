@@ -47,13 +47,17 @@ function parseStory(rawStory) {
         word: word.replace("[v]", ""),
         pos: "v"
       })
-    } else {
+    } else if ((/\[break\]/).test(word) === true) {
+      array.push({
+        word: word.replace("[break]", ""),
+        pos: "break"
+      })} else {
       array.push({
         word: word
       })
     }
   }
-
+console.log(array);
   return array // This line is currently wrong :)
 }
 
@@ -83,8 +87,10 @@ getRawStory().then(parseStory).then((processedStory) => {
 
     for (let i = 0; i < processedStory.length; i++) {
       const wordObj = processedStory[i];
-
-      if (wordObj.pos) {
+      if (wordObj.pos === 'break') {
+        madLibsEdit.appendChild(document.createElement("br")); // Add space
+        
+      }else if (wordObj.pos) {
         // Create an input element for edit view
         const input = document.createElement('input');
         input.type = 'text';
