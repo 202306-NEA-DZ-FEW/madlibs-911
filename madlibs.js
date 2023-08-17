@@ -148,3 +148,25 @@ getRawStory().then(parseStory).then((processedStory) => {
   // Initial rendering
   renderStory();
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector('.madLibsEdit'); // Select the container div
+
+  container.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      const inputFields = container.querySelectorAll('input');
+      const currentInput = event.target;
+      const currentIndex = Array.from(inputFields).indexOf(currentInput);
+
+      if (currentIndex > -1) {
+        event.preventDefault(); // Prevent default form submission behavior
+        const nextIndex = currentIndex + 1;
+
+        if (nextIndex < inputFields.length) {
+          inputFields[nextIndex].focus(); // Move focus to the next input field
+        } else {
+          inputFields[0].focus(); // If at the last input, move focus to the first input
+        }
+      }
+    }
+  });
+});
