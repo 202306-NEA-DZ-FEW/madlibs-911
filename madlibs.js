@@ -63,6 +63,80 @@ function parseStory(rawStory) {
  * 
  * You'll want to use the results of parseStory() to display the story on the page.
  */
-getRawStory().then(parseStory).then((processedStory) => {
+/*getRawStory().then(parseStory).then((processedStory) => {
   console.log(processedStory);
+}); */
+
+// Get a reference to the edit view and preview view elements
+const madLibsEdit = document.querySelector('.madLibsEdit');
+const madLibsPreview = document.querySelector('.madLibsPreview');
+
+// Get the processed story
+getRawStory().then(parseStory).then((processedStory) => {
+  // Create an array to store input values
+  const inputValues = new Array(processedStory.length);
+  
+  // Function to render the edit view and the preview view
+  function renderStory() {
+    madLibsEdit.innerHTML = ''; // Clear previous content
+    madLibsPreview.innerHTML = ''; // Clear previous content
+    
+    for (let i = 0; i < processedStory.length; i++) {
+      const wordObj = processedStory[i];
+      
+      if (wordObj.pos) {
+        // Create an input element for edit view
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.maxLength = 20; // Maximum of 20 characters
+        input.placeholder = wordObj.pos
+
+        // Listen for input changes
+        input.addEventListener('input', (event) => {
+          // Update the input value array
+          inputValues[i] = event.target.value;
+          
+          // Render the preview view
+          renderPreview();
+        });
+        
+        // Wrap the input in a span
+        const inputSpan = document.createElement('span');
+        inputSpan.appendChild(input);
+        
+        // Append the input span to the edit view
+        madLibsEdit.appendChild(inputSpan);
+      } else {
+        // Wrap the word in a span
+        const wordSpan = document.createElement('span');
+        wordSpan.textContent = wordObj.word + ' ';
+        
+        // Append the word span to the edit view
+        madLibsEdit.appendChild(wordSpan);
+      }
+      
+      // Render the preview view
+      renderPreview();
+    }
+  }
+  
+  // Function to render the preview view
+  function renderPreview() {
+    madLibsPreview.innerHTML = ''; // Clear previous content
+    
+    for (let i = 0; i < processedStory.length; i++) {
+      const wordObj = processedStory[i];
+      
+      // Wrap each word in a span
+      const wordSpan = document.createElement('span');
+      wordSpan.textContent = inputValues[i] || wordObj.word + ' ';
+      
+      // Append the word span to the preview view
+      madLibsPreview.appendChild(wordSpan);
+      madLibsEdit.appendChild(document.createTextNode(" ")); // Add space
+    }
+  }
+  
+  // Initial rendering
+  renderStory();
 });
