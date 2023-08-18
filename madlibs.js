@@ -58,9 +58,9 @@ getRawStory().then(parseStory).then((processedStory) => {
         input.placeholder = wordObj.pos;
 
         input.value = inputValues[i] || '';
-
         input.addEventListener('input', (event) => {
           inputValues[i] = event.target.value;
+          input.style.width = inputValues[i].length * 10 + 'px';
           renderPreview();
         });
 
@@ -92,6 +92,7 @@ getRawStory().then(parseStory).then((processedStory) => {
       } else wordSpan.textContent = wordObj.word + ' ';
       madLibsPreview.appendChild(wordSpan);
       madLibsPreview.appendChild(document.createTextNode(" "));
+
     }
   }
 
