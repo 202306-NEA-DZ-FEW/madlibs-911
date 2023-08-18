@@ -56,7 +56,7 @@ getRawStory().then(parseStory).then((processedStory) => {
       } else if (wordObj.pos) {
         const input = document.createElement('input');
         input.type = 'text';
-        input.maxLength = 20;
+        // input.maxLength = 20;
         input.placeholder = wordObj.pos;
 
         input.value = inputValues[i] || '';
@@ -135,6 +135,36 @@ input.addEventListener('input', (event) => {
 
   // Set the width of the input element based on the input value's length
   event.target.style.width = ((event.target.value.length + 1) * 10) + 'px'; // Adjust the multiplier as needed
+
+  // Render the preview view
+  renderPreview();
+});
+input.addEventListener('input', (event) => {
+  // Update the input value array
+  inputValues[i] = event.target.value;
+
+  // Create a hidden span element to measure text width
+  const hiddenSpan = document.createElement('span');
+  hiddenSpan.style.visibility = 'hidden';
+  hiddenSpan.style.position = 'absolute';
+  hiddenSpan.style.whiteSpace = 'pre';
+  hiddenSpan.style.fontSize = window.getComputedStyle(event.target).fontSize;
+  hiddenSpan.textContent = event.target.value;
+
+  // Append the hidden span to the document body
+  document.body.appendChild(hiddenSpan);
+
+  // Calculate the width needed based on the content of the span
+  const inputTextWidth = hiddenSpan.offsetWidth;
+
+  console.log('Input Text:', event.target.value);
+  console.log('Input Text Width:', inputTextWidth);
+
+  // Set the width of the input element
+  event.target.style.width = inputTextWidth + 'px';
+
+  // Remove the hidden span
+  document.body.removeChild(hiddenSpan);
 
   // Render the preview view
   renderPreview();
