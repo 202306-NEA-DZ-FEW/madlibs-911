@@ -120,11 +120,11 @@ input {
 }
 
 input:hover {
-    width: 60px;   
+    width: 30px;   
 }
 
 input:focus {
-    min-width: 60px;
+    min-width: 30px;
 }
 
 input, select, textarea {

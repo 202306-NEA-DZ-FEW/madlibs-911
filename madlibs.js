@@ -61,6 +61,7 @@ getRawStory().then(parseStory).then((processedStory) => {
 
         input.addEventListener('input', (event) => {
           inputValues[i] = event.target.value;
+          input.style.width = inputValues[i].length * 10 + 'px';
           renderPreview();
         });
 
