@@ -2,7 +2,7 @@
  * Your CSS goes here.
  */
  body {
-    background-color: rgb(22, 22, 22);     
+    background-color: rgb(0, 0, 0);     
 }
 
   #toggleOverlayButton {
@@ -66,15 +66,24 @@
       filter: drop-shadow(0 20px 40px rgba(255, 0, 0, 0.8));
     }
   }
+
   #container {
-    border-radius: 50% 20% / 10% 40%;
-    width: calc(100% - 180px); /* Adjusted width with left and right margin, because of the justify-content, doesnt allow us to add margin to right */
-    margin: 20px auto; /* Added margin and centered using 'auto' */
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    background-image: url('background.png');
-    background-size:cover ;    
+  
+  width: calc(100% - 180px);
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+  position: static;
+  background-image: url('background3.png');
+  background-position: center;
+  background-size: cover;
+  border-width: 12px 0px 12px 0px;
+  border-style: double;
+  border-color: rgb(77, 1, 83);
+  border-radius:40px 40px 60px 60px;
+  -moz-border-radius:40px 40px 60px 60px;
+  -webkit-border-radius:40px 40px 60px 60px;
+  padding: 10px;
 }
 
 span {
@@ -82,9 +91,10 @@ span {
     font-weight: bold;
     text-align: center;
     background-clip: text;
-    -webkit-background-clip: text; /* For Safari/WebKit */
+    -webkit-background-clip: text;
     color: transparent;
-    background-image: linear-gradient(45deg, rgb(172, 144, 218), rgb(92, 3, 104));   
+    background-image: linear-gradient(45deg, rgb(94, 94, 94), rgb(77, 1, 83));
+    margin-right: 10px;  
 }
 
 #resetButton {
@@ -93,21 +103,27 @@ span {
     width: 100px;
     border-radius: 50px;
     font-size: 30px;
-    background: linear-gradient(45deg, rgb(28, 48, 46), rgb(0, 21, 24));
+    background: linear-gradient(45deg, rgb(63, 34, 66), rgb(0, 21, 24));
     margin-top: 40px;
     font-family: 'Italianno', 'cursive';
     font-weight: 800;
-    border: solid 3px blue;
+    border: solid 3px rgb(63, 34, 66);
 }
+
 .madlibs {
-    font-family: 'Italianno', 'cursive';
-    font-size: 30px;
-    font-weight: 700;
-    width: 30%;
-    text-align: center;
-    flex: 1;
-    color: black;
-    
+  font-family: 'Italianno', 'cursive';
+  font-size: 30px;
+  font-weight: 700;
+  width: 30%;
+  text-align: center;
+  flex: 1;
+  color: black;  
+  border-width: 0px 12px 0px 12px;
+  border-style: double;
+  border-color: rgb(77, 1, 83);
+  border-radius:40px 40px 60px 60px;
+  -moz-border-radius:40px 40px 60px 60px;
+  -webkit-border-radius:40px 40px 60px 60px;
 }
 
 input {
@@ -120,7 +136,7 @@ input {
 }
 
 input:hover {
-    width: 30px;   
+    width: 30px;
 }
 
 input:focus {
