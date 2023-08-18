@@ -1,80 +1,145 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Get references to DOM elements
-  const welcomeButtonLeft = document.getElementById("welcomeLeft");
-  const welcomeButtonRight = document.getElementById("welcomeRight");
-  const contentContainer = document.getElementById("contentContainer");
-  const entranceDiv = document.getElementById('entrance');
-
-  // Initialize click counters
-  let leftButtonClicks = 0;
-  let rightButtonClicks = 0;
-
-  // Left button click event
-  welcomeButtonLeft.addEventListener("click", () => {
-    leftButtonClicks++;
-    checkClicks();
-  });
-
-  // Right button click event
-  welcomeButtonRight.addEventListener("click", () => {
-    rightButtonClicks++;
-    checkClicks();
-  });
-
-  // Function to check click conditions
-  function checkClicks() {
-    if (leftButtonClicks === 2 && rightButtonClicks === 1) {
-      entranceDiv.remove();
-      loadStory();
-    } else if (leftButtonClicks > 2 || rightButtonClicks > 1) {
-      // Refresh the page if wrong clicks
-      location.reload();
-    }
-  }
-
-  // Function to fetch and display story
-  function loadStory() {
-    getRawStory()
-      .then(function(rawStory) {
-        const processedStory = parseStory(rawStory);
-        renderStory(processedStory);
-        contentContainer.style.display = "block";
-      })
-      .catch(function(error) {
-        console.error("Error fetching or processing the story:", error);
-      });
-  }
-});
-
-// Function to render the processed story on the page
-function renderStory(processedStory) {
-  const madLibsEdit = document.querySelector(".madLibsEdit");
-  let currentLine = [];
-  processedStory.forEach((wordObj) => {
-    currentLine.push(wordObj.word);
-    if (wordObj.word.endsWith(".")) {
-      const paragraph = document.createElement("p");
-      paragraph.textContent = currentLine.join(" ");
-      madLibsEdit.appendChild(paragraph);
-      currentLine = [];
-    }
-  });
-}
-
-// Function to parse the raw story text and return an array of word objects
 function parseStory(rawStory) {
-  const wordArray = rawStory.split(/\s+/);
-  const processedStory = [];
-  wordArray.forEach((word) => {
-    const wordObj = {};
-    const match = word.match(/\[(.*?)\]/);
-    if (match) {
-      wordObj.word = word.replace(match[0], "");
-      wordObj.pos = match[1];
+  const array = [];
+  const splittedText = rawStory.split(" ");
+
+  for (const word of splittedText) {
+    if ((/\[n\]/).test(word) === true) {
+      array.push({
+        word: word.replace("[n]", ""),
+        pos: "n"
+      });
+    } else if ((/\[a\]/).test(word) === true) {
+      array.push({
+        word: word.replace("[a]", ""),
+        pos: "a"
+      });
+    } else if ((/\[v\]/).test(word) === true) {
+      array.push({
+        word: word.replace("[v]", ""),
+        pos: "v"
+      });
+    } else if ((/\[break\]/).test(word) === true) {
+      array.push({
+        word: word.replace("[break]", ""),
+        pos: "break"
+      });
     } else {
-      wordObj.word = word;
+      array.push({
+        word: word
+      });
     }
-    processedStory.push(wordObj);
-  });
-  return processedStory;
+  }
+  return array;
 }
+
+// Get the processed story
+getRawStory().then(parseStory).then((processedStory) => {
+  // Create an array to store input values
+  const inputValues = new Array(processedStory.length).fill('');
+
+  // Get references to the edit view and preview view elements
+  const madLibsEdit = document.querySelector('.madLibsEdit');
+  const madLibsPreview = document.querySelector('.madLibsPreview');
+
+  // Function to render the edit view and the preview view
+  function renderStory() {
+    madLibsEdit.innerHTML = ''; // Clear previous content
+    madLibsPreview.innerHTML = ''; // Clear previous content
+
+    for (let i = 0; i < processedStory.length; i++) {
+      const wordObj = processedStory[i];
+
+      if (wordObj.pos === 'break') {
+        madLibsEdit.appendChild(document.createElement("br"));
+      } else if (wordObj.pos) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        // input.maxLength = 20;
+        input.placeholder = wordObj.pos;
+
+        input.value = inputValues[i] || '';
+
+        input.addEventListener('input', (event) => {
+          inputValues[i] = event.target.value;
+          renderPreview();
+        });
+
+        const inputSpan = document.createElement('span');
+        inputSpan.appendChild(input);
+
+        madLibsEdit.appendChild(inputSpan);
+      } else {
+        const wordSpan = document.createElement('span');
+        wordSpan.textContent = wordObj.word + ' ';
+        madLibsEdit.appendChild(wordSpan);
+      }
+
+      renderPreview();
+    }
+  }
+
+  function renderPreview() {
+    madLibsPreview.innerHTML = '';
+
+    for (let i = 0; i < processedStory.length; i++) {
+      const wordObj = processedStory[i];
+
+      const wordSpan = document.createElement('span');
+      if (wordObj.pos === 'break') {
+        madLibsPreview.appendChild(document.createElement("br"));
+      } else if (wordObj.pos) {
+        wordSpan.textContent = inputValues[i] || '_____' + ' ';
+      } else wordSpan.textContent = wordObj.word + ' ';
+      madLibsPreview.appendChild(wordSpan);
+      madLibsPreview.appendChild(document.createTextNode(" "));
+    }
+  }
+
+  renderStory();
+
+  // Reset button event listener
+  const resetButton = document.querySelector('#resetButton');
+  resetButton.addEventListener('click', () => {
+    inputValues.fill('');
+    renderStory();
+  });
+
+  // Keyboard navigation
+  const container = document.querySelector('.madLibsEdit');
+  container.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      const inputFields = container.querySelectorAll('input');
+      const currentInput = event.target;
+      const currentIndex = Array.from(inputFields).indexOf(currentInput);
+
+      if (currentIndex > -1) {
+        event.preventDefault();
+        const nextIndex = currentIndex + 1;
+
+        if (nextIndex < inputFields.length) {
+          inputFields[nextIndex].focus();
+        } else {
+          inputFields[0].focus();
+        }
+      }
+    }
+  });
+
+  // Auto-adjust input width
+  const inputFields = container.querySelectorAll('input');
+  inputFields.forEach((input, i) => {
+    input.addEventListener('input', (event) => {
+      inputValues[i] = event.target.value;
+
+      // Set the width of the input element based on the input value's length
+      event.target.style.width = ((event.target.value.length + 1) * 10) + 'px'; // Adjust the multiplier as needed
+
+      // Render the preview view
+      renderPreview();
+    });
+  });
+});
+const toggleOverlay = () => {
+  const overlay = document.getElementById('overlay');
+  overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
+};
