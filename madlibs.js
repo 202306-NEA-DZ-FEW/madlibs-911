@@ -1,5 +1,3 @@
-
-// Function to parse the raw story text
 function parseStory(rawStory) {
   const array = [];
   const splittedText = rawStory.split(" ");
@@ -63,6 +61,7 @@ getRawStory().then(parseStory).then((processedStory) => {
 
         input.addEventListener('input', (event) => {
           inputValues[i] = event.target.value;
+          input.style.width = inputValues[i].length * 10 + 'px';
           renderPreview();
         });
 
