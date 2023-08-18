@@ -39,7 +39,7 @@ getRawStory().then(parseStory).then((processedStory) => {
   // Create an array to store input values
   const inputValues = new Array(processedStory.length).fill('');
 
-  // Get a reference to the edit view and preview view elements
+  // Get references to the edit view and preview view elements
   const madLibsEdit = document.querySelector('.madLibsEdit');
   const madLibsPreview = document.querySelector('.madLibsPreview');
 
@@ -105,11 +105,9 @@ getRawStory().then(parseStory).then((processedStory) => {
     inputValues.fill('');
     renderStory();
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
+  // Keyboard navigation
   const container = document.querySelector('.madLibsEdit');
-
   container.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
       const inputFields = container.querySelectorAll('input');
@@ -128,44 +126,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-});
-input.addEventListener('input', (event) => {
-  // Update the input value array
-  inputValues[i] = event.target.value;
 
-  // Set the width of the input element based on the input value's length
-  event.target.style.width = ((event.target.value.length + 1) * 10) + 'px'; // Adjust the multiplier as needed
+  // Auto-adjust input width
+  const inputFields = container.querySelectorAll('input');
+  inputFields.forEach((input, i) => {
+    input.addEventListener('input', (event) => {
+      inputValues[i] = event.target.value;
 
-  // Render the preview view
-  renderPreview();
-});
-input.addEventListener('input', (event) => {
-  // Update the input value array
-  inputValues[i] = event.target.value;
+      // Set the width of the input element based on the input value's length
+      event.target.style.width = ((event.target.value.length + 1) * 10) + 'px'; // Adjust the multiplier as needed
 
-  // Create a hidden span element to measure text width
-  const hiddenSpan = document.createElement('span');
-  hiddenSpan.style.visibility = 'hidden';
-  hiddenSpan.style.position = 'absolute';
-  hiddenSpan.style.whiteSpace = 'pre';
-  hiddenSpan.style.fontSize = window.getComputedStyle(event.target).fontSize;
-  hiddenSpan.textContent = event.target.value;
-
-  // Append the hidden span to the document body
-  document.body.appendChild(hiddenSpan);
-
-  // Calculate the width needed based on the content of the span
-  const inputTextWidth = hiddenSpan.offsetWidth;
-
-  console.log('Input Text:', event.target.value);
-  console.log('Input Text Width:', inputTextWidth);
-
-  // Set the width of the input element
-  event.target.style.width = inputTextWidth + 'px';
-
-  // Remove the hidden span
-  document.body.removeChild(hiddenSpan);
-
-  // Render the preview view
-  renderPreview();
+      // Render the preview view
+      renderPreview();
+    });
+  });
 });
