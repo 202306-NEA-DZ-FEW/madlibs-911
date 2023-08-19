@@ -38,10 +38,12 @@ body {
   display: block;
   margin: 0 auto;
   cursor: pointer;
-  width: 400px;
-  height: 400px;
-  background: url('fire.png') center/cover;
+  width: 50%;
+  height: 50%;
+  background: url('Group1.png') center/cover;
   background-attachment: fixed;
+  background-size: contain;
+  background-repeat: no-repeat;
   border: none;
   padding: 0;
   border-radius: 50%;
@@ -64,6 +66,37 @@ body {
   }
 }
 
+/* Add a bounce animation */
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-20px);
+  }
+
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Add a shadow pulse animation */
+@keyframes shadow-pulse {
+  0% {
+    filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 1));
+  }
+
+  100% {
+    filter: drop-shadow(0 20px 40px rgba(255, 0, 0, 1));
+  }
+
+}
 
 /* Add a bounce animation */
 @keyframes bounce {
@@ -159,11 +192,34 @@ span {
 
 }
 
+#membersButton {
+  /* Position the <p> element at the top right corner */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 3.75rem;
+  line-height: 2.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+
+  border: 1px solid #ffffff;
+  background-image: linear-gradient(-180deg, #f7fa33 0%, #13030f 100%);
+  box-shadow: 0 1rem 1.25rem 0 rgba(233, 236, 9, 0.5),
+    0 -0.25rem 1.5rem rgb(56, 55, 56) inset,
+    0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
+    0 0.25rem 0.5rem 0 rgb(176, 140, 185) inset;
+  /* Other styling for the <p> element */
+  z-index: 3;
+  color: #080000;
+}
+
 .madlibs {
   font-family: 'Italianno', 'cursive';
   font-size: 30px;
   font-weight: 700;
-  width: 300px;
+  width: 30%;
   text-align: center;
   flex: 1;
   color: black;
