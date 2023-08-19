@@ -110,6 +110,16 @@ span {
     border: solid 3px rgb(63, 34, 66);
 }
 
+#membersButton{
+  /* Position the <p> element at the top right corner */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  /* Other styling for the <p> element */
+  z-index: 3;
+  color: #a10707;
+}
 .madlibs {
   font-family: 'Italianno', 'cursive';
   font-size: 30px;

@@ -144,3 +144,8 @@ const toggleOverlay = () => {
   const overlay = document.getElementById('overlay');
   overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
 };
+
+//Add functionality to members, lead to index1.html
+document.getElementById("membersButton").addEventListener("click", function() {
+  window.location.href = "./index1.html";
+});
