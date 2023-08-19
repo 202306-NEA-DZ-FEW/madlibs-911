@@ -1,3 +1,17 @@
+const toggleOverlay = () => {
+  const overlay = document.getElementById('overlay');
+  const button = document.getElementById('toggleOverlayButton');
+
+  if (overlay.style.display === 'block') {
+    overlay.style.display = 'none';
+    button.textContent = 'Click Here';
+  } else {
+    overlay.style.display = 'block';
+    button.textContent = 'Not there, here';
+  }
+};
+
+addEventListener("DOMContentLoaded", (event) => {
 function parseStory(rawStory) {
   const array = [];
   const splittedText = rawStory.split(" ");
@@ -140,12 +154,9 @@ getRawStory().then(parseStory).then((processedStory) => {
     });
   });
 });
-const toggleOverlay = () => {
-  const overlay = document.getElementById('overlay');
-  overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
-};
 
 //Add functionality to members, lead to index1.html
 document.getElementById("membersButton").addEventListener("click", function() {
   window.location.href = "./index1.html";
+});
 });
