@@ -1,15 +1,13 @@
 /**
  * Your CSS goes here.
  */
+
 body {
-  background-color: rgb(22, 22, 22);
+  background-color: rgb(0, 0, 0);
 }
 
-#toggleOverlayButton {
-  position: relative;
-  z-index: 2;
-  /* Make sure the button is above the overlay */
-}
+
+
 
 .overlay {
   position: fixed;
@@ -18,19 +16,24 @@ body {
   width: 100%;
   height: 100%;
   background: url('test.gif') center center fixed;
+
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #toggleOverlayButton {
-  position: absolute;
+  z-index: 2;
   text-align: center;
+  align-self: center;
   top: 50%;
-  left: 40%;
-  top: 30%;
+  left: 50%;
   transform: translate(-50%, -50%);
   display: block;
   margin: 0 auto;
@@ -38,12 +41,29 @@ body {
   width: 400px;
   height: 400px;
   background: url('fire.png') center/cover;
+  background-attachment: fixed;
   border: none;
   padding: 0;
   border-radius: 50%;
   filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 0.5));
   animation: bounce 2s infinite, shadow-pulse 2s infinite alternate;
 }
+
+@media screen and (max-width : 767px) {
+  #toggleOverlayButton {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 
 /* Add a bounce animation */
 @keyframes bounce {
@@ -66,6 +86,10 @@ body {
 }
 
 /* Add a shadow pulse animation */
+
+
+
+/* Add a shadow pulse animation */
 @keyframes shadow-pulse {
   0% {
     filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 0.5));
@@ -77,28 +101,47 @@ body {
 }
 
 #container {
-  border-radius: 50% 20% / 10% 40%;
+
   width: calc(100% - 180px);
-  /* Adjusted width with left and right margin, because of the justify-content, doesnt allow us to add margin to right */
   margin: 20px auto;
-  /* Added margin and centered using 'auto' */
   display: flex;
   justify-content: space-around;
-  position: relative;
-  background-image: url('background.png');
-  background-size: cover;
+  position: static;
+  background-image: url('background3.png');
+  background-position: center;
+  background-attachment: fixed;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-width: 12px 0px 12px 0px;
+  border-style: double;
+  border-color: rgb(77, 1, 83);
+  border-radius: 40px 40px 60px 60px;
+  -moz-border-radius: 40px 40px 60px 60px;
+  -webkit-border-radius: 40px 40px 60px 60px;
+  padding: 10px;
+  height: auto;
+}
+
+@media screen and (max-width : 767px) {
+  #container {
+    flex-direction: column;
+    width: 100%;
+    border-width: 0px 0px 0px 0px;
+    align-items: center;
+    background-size: contain;
+  }
+
 }
 
 span {
-  resize: horizontal;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
   background-clip: text;
   -webkit-background-clip: text;
-  /* For Safari/WebKit */
   color: transparent;
-  background-image: linear-gradient(45deg, rgb(172, 144, 218), rgb(92, 3, 104));
+  background-image: linear-gradient(45deg, rgb(94, 94, 94), rgb(77, 1, 83));
+  margin-right: 10px;
 }
 
 #resetButton {
@@ -107,21 +150,43 @@ span {
   width: 100px;
   border-radius: 50px;
   font-size: 30px;
-  background: linear-gradient(45deg, rgb(28, 48, 46), rgb(0, 21, 24));
+  background: linear-gradient(45deg, rgb(63, 34, 66), rgb(0, 21, 24));
   margin-top: 40px;
+  margin-bottom: 40px;
   font-family: 'Italianno', 'cursive';
   font-weight: 800;
-  border: solid 3px blue;
+  border: solid 3px rgb(63, 34, 66);
+
 }
 
 .madlibs {
   font-family: 'Italianno', 'cursive';
   font-size: 30px;
   font-weight: 700;
-  width: 30%;
+  width: 300px;
   text-align: center;
   flex: 1;
   color: black;
+  border-width: 0px 12px 0px 12px;
+  border-style: double;
+  border-color: rgb(77, 1, 83);
+  border-radius: 40px 40px 60px 60px;
+  -moz-border-radius: 40px 40px 60px 60px;
+  -webkit-border-radius: 40px 40px 60px 60px;
+
+}
+
+@media screen and (max-width : 767px) {
+  .madlibs {
+    width: 80%;
+    margin-right: 6px;
+    align-self: center;
+    border-width: 12px 12px 12px 12px;
+  }
+
+  #resetButton {
+    align-self: center;
+  }
 
 }
 
@@ -135,11 +200,11 @@ input {
 }
 
 input:hover {
-  /* width: 60px;*/
+  width: 30px;
 }
 
 input:focus {
-  /*min-width: 60px;*/
+  min-width: 30px;
 }
 
 input,
