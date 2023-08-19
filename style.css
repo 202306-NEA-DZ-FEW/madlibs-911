@@ -136,9 +136,10 @@ body {
 #container {
 
   width: calc(100% - 180px);
-  margin: 20px auto;
+  /*margin: 20px auto;*/
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
   position: static;
   background-image: url('background3.png');
   background-position: center;
@@ -219,7 +220,7 @@ span {
   font-family: 'Italianno', 'cursive';
   font-size: 30px;
   font-weight: 700;
-  width: 30%;
+  width: 300px;
   text-align: center;
   flex: 1;
   color: black;
