@@ -28,18 +28,18 @@
     position: absolute;
     text-align: center;
     top: 50%;
-    left: 40%;
+    left: 37%;
     top:30%;
     transform: translate(-50%, -50%);
     display: block;
     margin: 0 auto;
     cursor: pointer;
-    width: 400px;
+    width: 558px;
     height: 400px;
-    background: url('fire.png') center/cover;
+    background: url('Group1.png') center/100% auto;
     border: none;
     padding: 0;
-    border-radius: 50%;
+    border-radius: 20%;
     filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 0.5));
     animation: bounce 2s infinite, shadow-pulse 2s infinite alternate;
   }
@@ -60,10 +60,10 @@
   /* Add a shadow pulse animation */
   @keyframes shadow-pulse {
     0% {
-      filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 0.5));
+      filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 1));
     }
     100% {
-      filter: drop-shadow(0 20px 40px rgba(255, 0, 0, 0.8));
+      filter: drop-shadow(0 20px 40px rgba(255, 0, 0, 1));
     }
   }
 
