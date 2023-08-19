@@ -88,7 +88,7 @@ getRawStory().then(parseStory).then((processedStory) => {
       if (wordObj.pos === 'break') {
         madLibsPreview.appendChild(document.createElement("br"));
       } else if (wordObj.pos) {
-        wordSpan.textContent = inputValues[i] || '_____' + ' ';
+        wordSpan.textContent = inputValues[i] || '_' + ' ';
       } else wordSpan.textContent = wordObj.word + ' ';
       madLibsPreview.appendChild(wordSpan);
       madLibsPreview.appendChild(document.createTextNode(" "));
@@ -144,3 +144,8 @@ const toggleOverlay = () => {
   const overlay = document.getElementById('overlay');
   overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
 };
+
+//Add functionality to members, lead to index1.html
+document.getElementById("membersButton").addEventListener("click", function() {
+  window.location.href = "./index1.html";
+});
