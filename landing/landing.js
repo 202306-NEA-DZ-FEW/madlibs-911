@@ -9,7 +9,7 @@ document.getElementById("overlayButton").addEventListener("click", function() {
     clicked = true;
   } else {
     // Navigate to a new page
-    window.location.href = "./landingP.html";
+    window.location.href = "./Page.html";
   }
 });
 
