@@ -56,7 +56,7 @@ body {
 }
 
 #musicButton {
-  background-image: url('play.svg');
+  /* background-image: url('play.svg'); */
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -64,6 +64,14 @@ body {
   border: 0; 
 
 }
+.playing {
+  background-image: url('play.svg');
+}
+
+.pause {
+  background-image: url('pause.png');
+}
+
 
 #divmusic {
   display: flex;
@@ -76,6 +84,16 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  
+  #musicButton {
+    /* background-image: url('play.svg'); */
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 0;
+  
   }
 
   #overlay {
@@ -185,6 +203,7 @@ body {
   }
 
 }
+
 
 span {
   font-size: 32px;

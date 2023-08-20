@@ -162,15 +162,19 @@ getRawStory().then(parseStory).then((processedStory) => {
 document.getElementById("membersButton").addEventListener("click", function() {
   window.location.href = "./index1.html";
 });
-const musicButton = document.getElementById("musicButton");
+  const musicButton = document.getElementById("musicButton");
   const audioPlayer = document.getElementById("audioPlayer");
   let isPlaying = false;
 
   musicButton.addEventListener("click", function() {
     if (isPlaying) {
       audioPlayer.pause();
+      musicButton.classList.remove('pause') 
+      musicButton.classList.add('playing')    
     } else {
       audioPlayer.play();
+      musicButton.classList.remove('playing')
+      musicButton.classList.add('pause')      
     }
     isPlaying = !isPlaying;
   });
