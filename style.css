@@ -253,7 +253,8 @@ input {
   border-radius: 0;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  background: linear-gradient(90deg, #a10707, #a10707) left bottom/100% 3px no-repeat;
+  background: linear-gradient(90deg, #605418, #605d07);
+  font-size: 17px;
 }
 
 input:hover {
@@ -262,10 +263,16 @@ input:hover {
 
 input:focus {
   min-width: 30px;
+  box-shadow: 0 0 1rem rgb(230, 241, 20);
 }
 
 input,
 select,
 textarea {
-  color: red;
+  color: rgb(233, 223, 223);
+  font-weight: 400;
+}
+
+.part-of-speech {
+  color: rgb(160, 158, 58); /* Change to the desired color */
 }

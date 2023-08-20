@@ -20,17 +20,17 @@ function parseStory(rawStory) {
     if ((/\[n\]/).test(word) === true) {
       array.push({
         word: word.replace("[n]", ""),
-        pos: "n"
+        pos: "noun"
       });
     } else if ((/\[a\]/).test(word) === true) {
       array.push({
         word: word.replace("[a]", ""),
-        pos: "a"
+        pos: "adj"
       });
     } else if ((/\[v\]/).test(word) === true) {
       array.push({
         word: word.replace("[v]", ""),
-        pos: "v"
+        pos: "verb"
       });
     } else if ((/\[break\]/).test(word) === true) {
       array.push({
@@ -68,7 +68,7 @@ getRawStory().then(parseStory).then((processedStory) => {
       } else if (wordObj.pos) {
         const input = document.createElement('input');
         input.type = 'text';
-        // input.maxLength = 20;
+        input.maxLength = 20;
         input.placeholder = wordObj.pos;
 
         input.value = inputValues[i] || '';
@@ -82,6 +82,7 @@ getRawStory().then(parseStory).then((processedStory) => {
         inputSpan.appendChild(input);
 
         madLibsEdit.appendChild(inputSpan);
+        madLibsEdit.appendChild(document.createTextNode(" "));
       } else {
         const wordSpan = document.createElement('span');
         wordSpan.textContent = wordObj.word + ' ';
@@ -102,7 +103,9 @@ getRawStory().then(parseStory).then((processedStory) => {
       if (wordObj.pos === 'break') {
         madLibsPreview.appendChild(document.createElement("br"));
       } else if (wordObj.pos) {
-        wordSpan.textContent = inputValues[i] || '_' + ' ';
+        const inputValue = inputValues[i];
+        wordSpan.textContent = inputValue ? inputValue : wordObj.pos;
+        wordSpan.classList.add('part-of-speech');
       } else wordSpan.textContent = wordObj.word + ' ';
       madLibsPreview.appendChild(wordSpan);
       madLibsPreview.appendChild(document.createTextNode(" "));
