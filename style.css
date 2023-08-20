@@ -49,6 +49,10 @@ body {
   border-radius: 50%;
   filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 0.5));
   animation: bounce 2s infinite, shadow-pulse 2s infinite alternate;
+  font-size: 16px;
+  color: white;
+  text-transform: uppercase;
+  line-height: 40;   /* Adjust the line height to vertically center the text */
 }
 
 @media screen and (max-width : 767px) {
