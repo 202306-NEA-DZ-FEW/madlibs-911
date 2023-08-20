@@ -1,3 +1,9 @@
+//overlay for content to be loaded
+window.addEventListener("load", function () {
+  var overlay = document.getElementById("overlay");
+  overlay.style.display = "none"; // Hide the overlay
+});
+
 let clicked = false;
 
 document.getElementById("overlayButton").addEventListener("click", function() {

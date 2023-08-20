@@ -1,3 +1,10 @@
+
+//overlay for content to be loaded
+window.addEventListener("load", function () {
+  var overlay = document.getElementById("overlay");
+  overlay.style.display = "none"; // Hide the overlay
+});
+
 addEventListener("DOMContentLoaded", (event) => {
 function parseStory(rawStory) {
   const array = [];

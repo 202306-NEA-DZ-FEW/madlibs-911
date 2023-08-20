@@ -1,4 +1,19 @@
-  .overlay {
+  /* overlay for content to be loaded */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Semi-transparent black background */
+  z-index: 9999; /* Place the overlay above other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto; /* Enable pointer events to block interactions */
+}
+
+  .landing {
     position: fixed;
     top: 0;
     left: 0;
@@ -87,7 +102,7 @@
     } 
     
   
-    #overlay {
+    #landing {
       position: fixed;
       top: 50%;
       left: 50%;
