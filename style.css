@@ -90,13 +90,13 @@ body {
   background-size: cover;
   width: 100px;
   height: 100px;
-  /*background-color: transparent;*/
+  background-color: transparent;
   border: 0;
 
 }
 
 .playing {
-  background-image: url('play.svg');
+  background-image: url('play.png');
 }
 
 .pause {
@@ -209,7 +209,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   position: static;
-  background-image: url('50.png');
+  background-image: url('./imgs/nirvana.jpg');
   background-position: center;
   background-attachment: fixed;
   background-size: contain;
@@ -223,6 +223,8 @@ body {
   padding: 10px;
   height: auto;
 }
+
+
 
 @media screen and (max-width : 767px) {
   #container {
@@ -249,10 +251,10 @@ span {
 
 #resetButton {
   align-self: flex-start;
-  height: 100px;
+  height: 80px;
   width: 100px;
   border-radius: 50px;
-  font-size: 30px;
+  font-size: 40px;
   background: linear-gradient(to right, rgb(235, 235, 64), rgb(80, 80, 21));
   margin-top: 40px;
   margin-bottom: 40px;
@@ -285,30 +287,8 @@ span {
   color: #080000;
 }
 
-#musicButton {
 
-  background-size: cover;
-  background-color: transparent;
-  width: 100px;
-  height: 100px;
-}
 
-.pause {
-  background-image: url('buttonmusic.jpg');
-}
-
-.playing {
-  background-image: url('fire.png');
-}
-
-#divmusic {
-  display: flex;
-}
-
-p {
-  color: white;
-  font-size: 40px;
-}
 
 .madlibs {
   font-family: 'Italianno', 'cursive';
