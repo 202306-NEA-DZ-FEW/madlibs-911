@@ -93,7 +93,7 @@ body {
 
 }
 .playing {
-  background-image: url('play.svg');
+  background-image: url('play.png');
 }
 
 .pause {
