@@ -216,6 +216,31 @@ span {
   color: #080000;
 }
 
+#musicButton {
+
+  background-size: cover;
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+}
+
+.pause {
+  background-image: url('buttonmusic.jpg');
+}
+
+.playing {
+  background-image: url('fire.png');
+}
+
+#divmusic {
+  display: flex;
+}
+
+p {
+  color: white;
+  font-size: 40px;
+}
+
 .madlibs {
   font-family: 'Italianno', 'cursive';
   font-size: 30px;
