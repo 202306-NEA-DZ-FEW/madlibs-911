@@ -1,168 +1,171 @@
-function parseStory(rawStory) {
-  const array = [];
-  const splittedText = rawStory.split(" ");
 
-  for (const word of splittedText) {
-    if ((/\[n\]/).test(word) === true) {
-      array.push({
-        word: word.replace("[n]", ""),
-        pos: "n"
-      });
-    } else if ((/\[a\]/).test(word) === true) {
-      array.push({
-        word: word.replace("[a]", ""),
-        pos: "a"
-      });
-    } else if ((/\[v\]/).test(word) === true) {
-      array.push({
-        word: word.replace("[v]", ""),
-        pos: "v"
-      });
-    } else if ((/\[break\]/).test(word) === true) {
-      array.push({
-        word: word.replace("[break]", ""),
-        pos: "break"
-      });
-    } else {
-      array.push({
-        word: word
-      });
-    }
-  }
-  return array;
-}
+//overlay for content to be loaded
+window.addEventListener("load", function () {
+  var overlay = document.getElementById("overlay");
+  overlay.style.display = "none"; // Hide the overlay
+});
 
-// Get the processed story
-getRawStory().then(parseStory).then((processedStory) => {
-  // Create an array to store input values
-  const inputValues = new Array(processedStory.length).fill('');
+addEventListener("DOMContentLoaded", (event) => {
+  function parseStory(rawStory) {
+    const array = [];
+    const splittedText = rawStory.split(" ");
 
-  // Get references to the edit view and preview view elements
-  const madLibsEdit = document.querySelector('.madLibsEdit');
-  const madLibsPreview = document.querySelector('.madLibsPreview');
-
-  // Function to render the edit view and the preview view
-  function renderStory() {
-    madLibsEdit.innerHTML = ''; // Clear previous content
-    madLibsPreview.innerHTML = ''; // Clear previous content
-
-    for (let i = 0; i < processedStory.length; i++) {
-      const wordObj = processedStory[i];
-
-      if (wordObj.pos === 'break') {
-        madLibsEdit.appendChild(document.createElement("br"));
-      } else if (wordObj.pos) {
-        const input = document.createElement('input');
-        input.type = 'text';
-        // input.maxLength = 20;
-        input.placeholder = wordObj.pos;
-
-        input.value = inputValues[i] || '';
-        input.addEventListener('input', (event) => {
-          inputValues[i] = event.target.value;
-          input.style.width = inputValues[i].length * 10 + 'px';
-          renderPreview();
+    for (const word of splittedText) {
+      if ((/\[n\]/).test(word) === true) {
+        array.push({
+          word: word.replace("[n]", ""),
+          pos: "noun"
         });
-
-        const inputSpan = document.createElement('span');
-        inputSpan.appendChild(input);
-
-        madLibsEdit.appendChild(inputSpan);
+      } else if ((/\[a\]/).test(word) === true) {
+        array.push({
+          word: word.replace("[a]", ""),
+          pos: "adj"
+        });
+      } else if ((/\[v\]/).test(word) === true) {
+        array.push({
+          word: word.replace("[v]", ""),
+          pos: "verb"
+        });
+      } else if ((/\[break\]/).test(word) === true) {
+        array.push({
+          word: word.replace("[break]", ""),
+          pos: "break"
+        });
       } else {
-        const wordSpan = document.createElement('span');
-        wordSpan.textContent = wordObj.word + ' ';
-        madLibsEdit.appendChild(wordSpan);
+        array.push({
+          word: word
+        });
       }
-
-      renderPreview();
     }
+    return array;
   }
 
-  function renderPreview() {
-    madLibsPreview.innerHTML = '';
+  // Get the processed story
+  getRawStory().then(parseStory).then((processedStory) => {
+    // Create an array to store input values
+    const inputValues = new Array(processedStory.length).fill('');
 
-    for (let i = 0; i < processedStory.length; i++) {
-      const wordObj = processedStory[i];
+    // Get references to the edit view and preview view elements
+    const madLibsEdit = document.querySelector('.madLibsEdit');
+    const madLibsPreview = document.querySelector('.madLibsPreview');
 
-      const wordSpan = document.createElement('span');
-      if (wordObj.pos === 'break') {
-        madLibsPreview.appendChild(document.createElement("br"));
-      } else if (wordObj.pos) {
-        wordSpan.textContent = inputValues[i] || '_' + ' ';
-      } else wordSpan.textContent = wordObj.word + ' ';
-      madLibsPreview.appendChild(wordSpan);
-      madLibsPreview.appendChild(document.createTextNode(" "));
+    // Function to render the edit view and the preview view
+    function renderStory() {
+      madLibsEdit.innerHTML = ''; // Clear previous content
+      madLibsPreview.innerHTML = ''; // Clear previous content
 
-    }
-  }
+      for (let i = 0; i < processedStory.length; i++) {
+        const wordObj = processedStory[i];
 
-  renderStory();
+        if (wordObj.pos === 'break') {
+          madLibsEdit.appendChild(document.createElement("br"));
+        } else if (wordObj.pos) {
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.maxLength = 20;
+          input.placeholder = wordObj.pos;
 
-  // Reset button event listener
-  const resetButton = document.querySelector('#resetButton');
-  resetButton.addEventListener('click', () => {
-    inputValues.fill('');
-    renderStory();
-  });
+          input.value = inputValues[i] || '';
+          input.addEventListener('input', (event) => {
+            inputValues[i] = event.target.value;
+            input.style.width = inputValues[i].length * 10 + 'px';
+            renderPreview();
+          });
 
-  // Keyboard navigation
-  const container = document.querySelector('.madLibsEdit');
-  container.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      const inputFields = container.querySelectorAll('input');
-      const currentInput = event.target;
-      const currentIndex = Array.from(inputFields).indexOf(currentInput);
+          const inputSpan = document.createElement('span');
+          inputSpan.appendChild(input);
 
-      if (currentIndex > -1) {
-        event.preventDefault();
-        const nextIndex = currentIndex + 1;
-
-        if (nextIndex < inputFields.length) {
-          inputFields[nextIndex].focus();
+          madLibsEdit.appendChild(inputSpan);
+          madLibsEdit.appendChild(document.createTextNode(" "));
         } else {
-          inputFields[0].focus();
+          const wordSpan = document.createElement('span');
+          wordSpan.textContent = wordObj.word + ' ';
+          madLibsEdit.appendChild(wordSpan);
+        }
+
+        renderPreview();
+      }
+    }
+
+    function renderPreview() {
+      madLibsPreview.innerHTML = '';
+
+      for (let i = 0; i < processedStory.length; i++) {
+        const wordObj = processedStory[i];
+
+        const wordSpan = document.createElement('span');
+        if (wordObj.pos === 'break') {
+          madLibsPreview.appendChild(document.createElement("br"));
+        } else if (wordObj.pos) {
+          const inputValue = inputValues[i];
+          wordSpan.textContent = inputValue ? inputValue : wordObj.pos;
+          wordSpan.classList.add('part-of-speech');
+        } else wordSpan.textContent = wordObj.word + ' ';
+        madLibsPreview.appendChild(wordSpan);
+        madLibsPreview.appendChild(document.createTextNode(" "));
+
+      }
+    }
+
+    renderStory();
+
+    // Reset button event listener
+    const resetButton = document.querySelector('#resetButton');
+    resetButton.addEventListener('click', () => {
+      inputValues.fill('');
+      renderStory();
+    });
+
+    // Keyboard navigation
+    const container = document.querySelector('.madLibsEdit');
+    container.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        const inputFields = container.querySelectorAll('input');
+        const currentInput = event.target;
+        const currentIndex = Array.from(inputFields).indexOf(currentInput);
+
+        if (currentIndex > -1) {
+          event.preventDefault();
+          const nextIndex = currentIndex + 1;
+
+          if (nextIndex < inputFields.length) {
+            inputFields[nextIndex].focus();
+          } else {
+            inputFields[0].focus();
+          }
         }
       }
-    }
-  });
+    });
 
-  // Auto-adjust input width
-  const inputFields = container.querySelectorAll('input');
-  inputFields.forEach((input, i) => {
-    input.addEventListener('input', (event) => {
-      inputValues[i] = event.target.value;
+    // Auto-adjust input width
+    const inputFields = container.querySelectorAll('input');
+    inputFields.forEach((input, i) => {
+      input.addEventListener('input', (event) => {
+        inputValues[i] = event.target.value;
 
-      // Set the width of the input element based on the input value's length
-      event.target.style.width = ((event.target.value.length + 1) * 10) + 'px'; // Adjust the multiplier as needed
+        // Set the width of the input element based on the input value's length
+        event.target.style.width = ((event.target.value.length + 1) * 10) + 'px'; // Adjust the multiplier as needed
 
-      // Render the preview view
-      renderPreview();
+        // Render the preview view
+        renderPreview();
+      });
     });
   });
-});
-const toggleOverlay = () => {
-  const overlay = document.getElementById('overlay');
-  overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
-};
 
-//Add functionality to members, lead to index1.html
-document.getElementById("membersButton").addEventListener("click", function () {
-  window.location.href = "./index1.html";
-});
+  const musicButton = document.getElementById("musicButton");
+  const audioPlayer = document.getElementById("audioPlayer");
+  let isPlaying = false;
 
-const musicButton = document.getElementById("musicButton");
-const audioPlayer = document.getElementById("audioPlayer");
-let isPlaying = true;
-
-musicButton.addEventListener("click", function () {
-  if (isPlaying) {
-    audioPlayer.pause();
-    musicButton.classList.add('playing')
-    musicButton.classList.remove('pause')
-  } else {
-    audioPlayer.play();
-    musicButton.classList.remove('playing')
-    musicButton.classList.add('pause')
-  }
-  isPlaying = !isPlaying;
+  musicButton.addEventListener("click", function () {
+    if (isPlaying) {
+      audioPlayer.pause();
+      musicButton.classList.remove('pause')
+      musicButton.classList.add('playing')
+    } else {
+      audioPlayer.play();
+      musicButton.classList.remove('playing')
+      musicButton.classList.add('pause')
+    }
+    isPlaying = !isPlaying;
+  });
 });

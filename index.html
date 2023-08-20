@@ -7,35 +7,17 @@
   <title>repl.it</title>
   <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,700&family=Cairo&family=Italianno&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="./landing/landing.css" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body>
-
-  <div class="overlay" id="overlay">
+  <div id="overlay"></div>
+  <div class="landing" id="landing">
     <button id="membersButton" type="button">Members</button>
-    <button id="toggleOverlayButton" onclick="toggleOverlay()"></button>
+    <button id="overlayButton">Click Here</button>
   </div>
-  <div id='divmusic'>
-    <p>hello</p>
-    <button id='musicButton'></button>
-    <audio src="amen.mp3" id='audioPlayer'></audio>
-
-  </div>
-
-  <div id='container'>
-    <div class='madLibsEdit madlibs'>
-    </div>
-    <button id="resetButton">Reset</button>
-    <div class='madLibsPreview madlibs'>
-    </div>
-  </div>
-  <script src="do-not-touch.js"></script>
-  <script src="madlibs.js"></script>
+  <script src="./landing/landing.js"></script>
 </body>
 
 </html>
