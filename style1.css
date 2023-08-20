@@ -80,16 +80,19 @@ h1 a {
 }
 
 .profile-card-1 .profile {
-  border-radius: 50%;
   position: absolute;
-  bottom: 50%;
-  left: 50%;
-  max-width: 100px;
+  top: 27%; /* Position the image at the top of its container */
+  left: 50%; 
   opacity: 1;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
   border: 2px solid rgba(255, 255, 255, 1);
-  -webkit-transform: translate(-50%, 0%);
-  transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;   
+  object-fit: cover;
+  max-width: none;
+  width: 40%;
+  height: 50%;
 }
 
 .profile-card-1 h2 {
@@ -155,3 +158,22 @@ h1 a {
   z-index: 3;
   color: #080000;
 }
+
+@media screen and (max-width : 767px) {
+  .profile-card-1 .profile {
+    position: absolute;
+    top: 30%; /* Position the image at the top of its container */
+    left: 50%;
+    /* max-width: 100px; */
+    opacity: 1;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 1);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;   
+    object-fit: center;
+    max-width: none;
+    width: 30%;
+    height: 40%;
+  }  
+  }
