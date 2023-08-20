@@ -108,6 +108,25 @@ body {
 }
 
 @media screen and (max-width : 767px) {
+  #container {
+    flex-direction: column;
+    width: 100%;
+    border-width: 0px 0px 0px 0px;
+    align-items: center;
+    background-size: contain;
+  }
+
+  .madlibs {
+    width: 80%;
+    margin-right: 6px;
+    align-self: center;
+    border-width: 12px 12px 12px 12px;
+  }
+
+  #resetButton {
+    align-self: center;
+  }
+
   #overlayButton {
     top: 50%;
     left: 50%;
@@ -221,18 +240,6 @@ body {
   height: auto;
 }
 
-@media screen and (max-width : 767px) {
-  #container {
-    flex-direction: column;
-    width: 100%;
-    border-width: 0px 0px 0px 0px;
-    align-items: center;
-    background-size: contain;
-  }
-
-}
-
-
 span {
   font-size: 32px;
   font-weight: bold;
@@ -297,20 +304,6 @@ span {
   -moz-border-radius: 40px 40px 60px 60px;
   -webkit-border-radius: 40px 40px 60px 60px;
   padding-top: 30px;
-}
-
-@media screen and (max-width : 767px) {
-  .madlibs {
-    width: 80%;
-    margin-right: 6px;
-    align-self: center;
-    border-width: 12px 12px 12px 12px;
-  }
-
-  #resetButton {
-    align-self: center;
-  }
-
 }
 
 input {
