@@ -206,7 +206,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   position: static;
-  background-image: url('50.png');
+  background-image: url('./imgs/nirvana.jpg');
   background-position: center;
   background-attachment: fixed;
   background-size: contain;
