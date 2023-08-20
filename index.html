@@ -14,13 +14,17 @@
 
 </head>
 
-<body>
-  <audio src="/music.mp3" loop="true" autoplay></audio>
+<body>  
   <div class="overlay" id="overlay">
     <button id="membersButton" type="button">Members</button>
     <button id="toggleOverlayButton" onclick="toggleOverlay()">Click Here</button>
   </div>
-
+</div>
+<div id='divmusic'>
+  <p></p>
+  <button id='musicButton'></button>
+  <audio id="audioPlayer" src="music.mp3" loop></audio>  
+</div>
   <div id='container'>
     <div class='madLibsEdit madlibs'>
     </div>

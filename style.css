@@ -55,6 +55,22 @@ body {
   line-height: 40;   /* Adjust the line height to vertically center the text */
 }
 
+#musicButton {
+  background-image: url('play.svg');
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  border: 0; 
+
+}
+
+#divmusic {
+  display: flex;
+  margin: 15px;
+  position: fixed;
+}
+
 @media screen and (max-width : 767px) {
   #toggleOverlayButton {
     top: 50%;
@@ -138,9 +154,8 @@ body {
 }
 
 #container {
-
-  width: calc(100% - 180px);
-  /*margin: 20px auto;*/
+  margin-left: 30px;
+  margin-right: 30px;  
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -234,7 +249,7 @@ span {
   border-radius: 40px 40px 60px 60px;
   -moz-border-radius: 40px 40px 60px 60px;
   -webkit-border-radius: 40px 40px 60px 60px;
-
+  padding-top: 30px;
 }
 
 @media screen and (max-width : 767px) {
