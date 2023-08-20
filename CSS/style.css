@@ -41,7 +41,7 @@
   cursor: pointer;
   width: 50%;
   height: 50%;
-  background: url('Group1.png') center/cover;
+  background: url('../Group1.png') center/cover;
   background-attachment: fixed;
   background-size: contain;
   background-repeat: no-repeat;
@@ -68,7 +68,7 @@
   cursor: pointer;
   width: 50%;
   height: 50%;
-  background: url('Group1.png') center/cover;
+  background: url('../Group1.png') center/cover;
   background-attachment: fixed;
   background-size: contain;
   background-repeat: no-repeat;
@@ -93,11 +93,11 @@
 
 }
 .playing {
-  background-image: url('play.png');
+  background-image: url('../play.png');
 }
 
 .pause {
-  background-image: url('pause.png');
+  background-image: url('../pause.png');
 }
 
 
@@ -206,7 +206,7 @@
   flex-direction: row;
   justify-content: space-between;
   position: static;
-  background-image: url('./imgs/nirvana.jpg');
+  background-image: url('../imgs/nirvana.jpg');
   background-position: center;
   background-attachment: fixed;
   background-size: contain;
