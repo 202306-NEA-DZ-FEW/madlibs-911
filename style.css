@@ -21,15 +21,43 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  /* z-index: 1; */
 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-#toggleOverlayButton {
-  z-index: 2;
+#newOverlayButton {
+  position: absolute;
+  /* z-index: 2; */
+  text-align: center;
+  align-self: center;
+  top: 20%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 50%;
+  height: 50%;
+  background: url('Group1.png') center/cover;
+  background-attachment: fixed;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 0.5));
+  animation: bounce 2s infinite, shadow-pulse 2s infinite alternate;
+  font-size: 16px;
+  color: white;
+  text-transform: uppercase;
+  line-height: 40;   /* Adjust the line height to vertically center the text */
+}
+
+#overlayButton {
+  /* z-index: 2; */
   text-align: center;
   align-self: center;
   top: 50%;
@@ -80,7 +108,7 @@ body {
 }
 
 @media screen and (max-width : 767px) {
-  #toggleOverlayButton {
+  #overlayButton {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -250,7 +278,7 @@ span {
     0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
     0 0.25rem 0.5rem 0 rgb(176, 140, 185) inset;
   /* Other styling for the <p> element */
-  z-index: 3;
+  /* z-index: 3; */
   color: #080000;
 }
 
