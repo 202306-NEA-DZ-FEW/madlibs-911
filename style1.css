@@ -58,6 +58,7 @@ h1 a {
   text-align: center;
   height: 368px;
   border: none;
+  border-radius: 50px;
 }
 
 .profile-card-1 .background {
