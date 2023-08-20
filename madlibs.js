@@ -7,24 +7,6 @@ window.addEventListener("load", function () {
 
 addEventListener("DOMContentLoaded", (event) => {
 function parseStory(rawStory) {
-<<<<<<< HEAD
-  console.log(rawsStory);
-  return {}; // This line is currently wrong :)
-}
-//console.log(parseStory(s))
-/**
- * All your other JavaScript code goes here, inside the function. Don't worry about
- * the `then` and `async` syntax for now.
- * 
- * You'll want to use the results of parseStory() to display the story on the page.
- */
-getRawStory()
-  .then(parseStory)
-  .then((processedStory) => {
-    //console.log(processedStory);
-    functionality(processedStory)
-  });
-=======
   const array = [];
   const splittedText = rawStory.split(" ");
 
@@ -187,4 +169,3 @@ getRawStory().then(parseStory).then((processedStory) => {
     isPlaying = !isPlaying;
   });
 });
->>>>>>> takidilmi
