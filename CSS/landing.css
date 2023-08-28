@@ -43,8 +43,8 @@
     display: block;
     margin: 0 auto;
     cursor: pointer;
-    width: 50%;
-    height: 50%;
+    width: 20%;
+    height: 20%;
     background: url('../Group1.png') center/cover;
     background-attachment: fixed;
     background-size: contain;
@@ -58,6 +58,9 @@
     color: white;
     text-transform: uppercase;
     line-height: 40;   /* Adjust the line height to vertically center the text */
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
   }
   
   #overlayButton {
@@ -70,8 +73,8 @@
     display: block;
     margin: 0 auto;
     cursor: pointer;
-    width: 50%;
-    height: 50%;
+    width: 20%;
+    height: 20%;
     background: url('../Group1.png') center/cover;
     background-attachment: fixed;
     background-size: contain;
@@ -85,6 +88,9 @@
     color: white;
     text-transform: uppercase;
     line-height: 40;   /* Adjust the line height to vertically center the text */
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
   }
    
   
