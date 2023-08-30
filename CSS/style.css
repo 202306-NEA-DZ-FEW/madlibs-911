@@ -1,0 +1,359 @@
+/**
+ * Your CSS goes here.
+ */
+
+ body {
+  background-color: rgb(0, 0, 0);
+}
+
+
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('test.gif') center center fixed;
+
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 1; */
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#newOverlayButton {
+  position: absolute;
+  /* z-index: 2; */
+  text-align: center;
+  align-self: center;
+  top: 20%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 50%;
+  height: 50%;
+  background: url('../Group1.png') center/cover;
+  background-attachment: fixed;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 0.5));
+  animation: bounce 2s infinite, shadow-pulse 2s infinite alternate;
+  font-size: 16px;
+  color: white;
+  text-transform: uppercase;
+  line-height: 40;   /* Adjust the line height to vertically center the text */
+}
+
+#overlayButton {
+  /* z-index: 2; */
+  text-align: center;
+  align-self: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 50%;
+  height: 50%;
+  background: url('../Group1.png') center/cover;
+  background-attachment: fixed;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 0.5));
+  animation: bounce 2s infinite, shadow-pulse 2s infinite alternate;
+  font-size: 16px;
+  color: white;
+  text-transform: uppercase;
+  line-height: 40;   /* Adjust the line height to vertically center the text */
+}
+
+#musicButton {
+  /* background-image: url('play.svg'); */
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  border: 0; 
+
+}
+.playing {
+  background-image: url('../play.png');
+}
+
+.pause {
+  background-image: url('../pause.png');
+}
+
+
+#divmusic {
+  display: flex;
+  margin: 15px;
+  position: fixed;
+}
+
+@media screen and (max-width : 767px) {
+  #overlayButton {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #musicButton {
+    /* background-image: url('play.svg'); */
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 0;
+  
+  }
+
+  #overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Add a bounce animation */
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-20px);
+  }
+
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Add a shadow pulse animation */
+@keyframes shadow-pulse {
+  0% {
+    filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 1));
+  }
+
+  100% {
+    filter: drop-shadow(0 20px 40px rgba(255, 0, 0, 1));
+  }
+
+}
+
+/* Add a bounce animation */
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-20px);
+  }
+
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Add a shadow pulse animation */
+
+
+
+/* Add a shadow pulse animation */
+@keyframes shadow-pulse {
+  0% {
+    filter: drop-shadow(0 10px 20px rgba(255, 0, 0, 0.5));
+  }
+
+  100% {
+    filter: drop-shadow(0 20px 40px rgba(255, 0, 0, 0.8));
+  }
+}
+
+#container {
+  margin-left: 30px;
+  margin-right: 30px;  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: static;
+  background-image: url('../imgs/nirvana.jpg');
+  background-position: center;
+  background-attachment: fixed;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-width: 12px 0px 12px 0px;
+  border-style: double;
+  border-color: rgb(189, 185, 65);
+  border-radius: 40px 40px 60px 60px;
+  -moz-border-radius: 40px 40px 60px 60px;
+  -webkit-border-radius: 40px 40px 60px 60px;
+  padding: 10px;
+  height: auto;
+}
+
+@media screen and (max-width : 767px) {
+  #container {
+    flex-direction: column;
+    width: 100%;
+    border-width: 0px 0px 0px 0px;
+    align-items: center;
+    background-size: contain;
+  }
+
+}
+
+
+span {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(45deg, rgb(138, 138, 138), rgb(255, 255, 255));
+  margin-right: 10px;
+}
+
+#resetButton {
+  align-self: flex-start;
+  height: 80px;
+  width: 100px;
+  border-radius: 50px;
+  font-size: 40px;
+  background: linear-gradient(to right, rgb(235, 235, 64), rgb(80, 80, 21));
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: 'Italianno', 'cursive';
+  font-weight: 800;
+  border: none;
+
+}
+
+#membersButton {
+  /* Position the <p> element at the top right corner */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 3.75rem;
+  line-height: 2.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+
+  border: 1px solid #ffffff;
+  background-image: linear-gradient(-180deg, #f7fa33 0%, #13030f 100%);
+  box-shadow: 0 1rem 1.25rem 0 rgba(233, 236, 9, 0.5),
+    0 -0.25rem 1.5rem rgb(56, 55, 56) inset,
+    0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
+    0 0.25rem 0.5rem 0 rgb(176, 140, 185) inset;
+  /* Other styling for the <p> element */
+  /* z-index: 3; */
+  color: #080000;
+}
+
+.madlibs {
+  font-family: 'Italianno', 'cursive';
+  font-size: 30px;
+  font-weight: 700;
+  width: 300px;
+  text-align: center;
+  flex: 1;
+  color: black;
+  border-width: 0px 12px 0px 12px;
+  border-style: double;
+  border-color: rgb(189, 185, 65);
+  border-radius: 40px 40px 60px 60px;
+  -moz-border-radius: 40px 40px 60px 60px;
+  -webkit-border-radius: 40px 40px 60px 60px;
+  padding-top: 30px;
+}
+
+@media screen and (max-width : 767px) {
+  .madlibs {
+    width: 80%;
+    margin-right: 6px;
+    align-self: center;
+    border-width: 12px 12px 12px 12px;
+  }
+
+  #resetButton {
+    align-self: center;
+  }
+
+}
+
+input {
+  /*resize: horizontal;*/
+  width: 10px;
+  border-radius: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background: linear-gradient(90deg, #605418, #605d07);
+  font-size: 17px;
+}
+
+input:hover {
+  width: 30px;
+}
+
+input:focus {
+  min-width: 30px;
+  box-shadow: 0 0 1rem rgb(230, 241, 20);
+}
+
+input,
+select,
+textarea {
+  color: rgb(233, 223, 223);
+  font-weight: 400;
+}
+
+.part-of-speech {
+  color: rgb(160, 158, 58); /* Change to the desired color */
+}
+
+/* overlay for content to be loaded */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Semi-transparent black background */
+  z-index: 9999; /* Place the overlay above other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto; /* Enable pointer events to block interactions */
+}

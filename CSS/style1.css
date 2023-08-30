@@ -1,0 +1,183 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #e8cbc0;
+  background: -webkit-linear-gradient(to right, #e8cbc0, #636fa4);
+  background: linear-gradient(to right, #e8cbc0, #636fa4);
+  min-height: 100vh;
+
+}
+
+*:hover {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+section {
+  float: left;
+  width: 100%;
+  background: #fff;
+  /* fallback for old browsers */
+  padding: 30px 0;
+}
+
+h1 {
+  float: left;
+  width: 100%;
+  color: #232323;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+h1 span {
+  font-family: 'Libre Baskerville', serif;
+  display: block;
+  font-size: 45px;
+  text-transform: none;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-weight: 700
+}
+
+h1 a {
+  color: #131313;
+  font-weight: bold;
+}
+
+/*Profile Card 1*/
+.profile-card-1 {
+  font-family: 'Open Sans', Arial, sans-serif;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  height: 368px;
+  border: none;
+  border-radius: 50px;
+}
+
+.profile-card-1 .background {
+  width: 100%;
+  vertical-align: top;
+  height: 100%;
+  opacity: 0.9;
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  -webkit-transform: scale(1.8);
+  transform: scale(2.8);
+}
+
+.profile-card-1 .card-content {
+  width: 100%;
+  padding: 15px 25px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.profile-card-1 .profile {
+  position: absolute;
+  top: 27%; /* Position the image at the top of its container */
+  left: 50%; 
+  opacity: 1;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 1);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;   
+  object-fit: cover;
+  max-width: none;
+  width: 40%;
+  height: 50%;
+}
+
+.profile-card-1 h2 {
+  margin: 0 0 5px;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.profile-card-1 h2 small {
+  display: block;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.profile-card-1 i {
+  display: inline-block;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  border: 1px solid #fff;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.profile-card-1 .icon-block {
+  float: left;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.profile-card-1 .icon-block a {
+  text-decoration: none;
+}
+
+.profile-card-1 i:hover {
+  background-color: #fff;
+  color: #2E3434;
+  text-decoration: none;
+}
+
+#goBack {
+  margin-bottom: 5%;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  cursor: pointer;
+  padding: 1% 3%;
+  border-radius: 30px;
+  line-height: 2.5rem;
+  font-size: 1.5vw; 
+
+  border: 1px solid #ffffff;
+  background-image: linear-gradient(-180deg, hwb(300 72% 5%) 0%, #13030f 100%);
+  box-shadow: 0 1rem 1.25rem 0 rgba(240, 114, 219, 0.5),
+    0 -0.25rem 1.5rem rgb(56, 55, 56) inset,
+    0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
+    0 0.25rem 0.5rem 0 rgb(176, 140, 185) inset;
+  /* Other styling for the <p> element */
+  z-index: 3;
+  color: #080000;
+}
+
+@media screen and (max-width : 767px) {
+  .profile-card-1 .profile {
+    position: absolute;
+    top: 30%; /* Position the image at the top of its container */
+    left: 50%;
+    /* max-width: 100px; */
+    opacity: 1;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 1);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;   
+    object-fit: center;
+    max-width: none;
+    width: 30%;
+    height: 40%;
+  }  
+  #goBack {
+    padding: 2% 5%;
+    font-size: 2vw;
+  }
+  }
